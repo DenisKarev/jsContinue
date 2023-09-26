@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denis Karev HomeWork #01</title>
+  </head>
+  <body>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title" data-number="100">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text" data-number="50">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" id="super_link" class="card-link">Card link</a>
+        <a href="#" class="card-link" data-number="50">Another link</a>
+      </div>
+    </div>
+    <button class="runHW">run homework #01</button>
+    <script>
+      "use strict";
+
+      // const all = document.querySelector('*');
+      // console.log(all.children['1']);
+
+      let homeWorkRan = false;
+      let page = document.querySelector(".runHW");
+
+      document.querySelector(".runHW").onclick = function hw01() {
+        if (homeWorkRan && page.innerText === "reload?") {
+          location.reload();
+        } else if (!homeWorkRan) {
+          // 1. Найти по id, используя getElementById, элемент с id равным "super_link" и вывести этот элемент в консоль.
+          console.log("task 01");
+          console.log(document.getElementById("super_link"));
+          // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
+          console.log("task 02");
+          const cardLinkElems = document.querySelectorAll(".card-link");
+          cardLinkElems.forEach((element) => {
+            element.textContent = "ссылка";
+            // console.log(element);
+          });
+          // 3. Найти все элементы на странице с классом "card-link", которые лежат в элементе с классом "card-body" и вывести полученную коллекцию в консоль.
+          console.log("task 03");
+          console.log(document.querySelectorAll(".card-body>.card-link"));
+          // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
+          console.log("task 04");
+          console.log(document.querySelector('[data-number="50"]'));
+          // 5. Выведите содержимое тега title в консоль.
+          console.log("task 05");
+          console.log(document.querySelector("title").innerText);
+          // 6. Получите элемент с классом "card-title" и выведите его родительский узел в консоль.
+          console.log("task 06");
+          console.log(document.querySelector(".card-title").parentNode);
+          // 7. Создайте тег p, запишите внутри него текст "Привет" и добавьте созданный тег в начало элемента, который имеет класс "card".
+          console.log("task 07");
+          const pElement = document.createElement("p");
+          pElement.innerText = "Привет";
+          console.log(document.querySelector(".card").appendChild(pElement));
+          // 8. Удалите тег h6 на странице.
+          console.log("task 08  ");
+          document.querySelector("h6").remove();
+
+          homeWorkRan = true;
+        } else {
+          console.log("ran already");
+          page.innerText = "reload?";
+          return;
+        }
+      };
+    </script>
+  </body>
+</html>
