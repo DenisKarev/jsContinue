@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denis Karev HomeWork #05</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        background-color: grey;
+      }
+      body {
+        color: black;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .item {
+        width: 240px;
+        max-height: 320px;
+        background-color: white;
+        color: brown;
+        text-align: center;
+        padding: 16px;
+      }
+      .id {
+        margin-bottom: 16px;
+        max-height: 32px;
+      }
+      .title {
+        margin-bottom: 16px;
+      }
+      .image_thumb {
+        border: 1px solid black;
+      }
+    </style>
+    <script src="./hw05data.js"></script>
+  </head>
+  <body>
+
+    <script>
+      'use strict';
+
+        // Задание 1
+        // 1. Поиск в интернете (бесплатные api примеры).
+        //      jsonplaceholder.typicode.com
+        //      в моем случае
+        // 2. Найти любые данные, на произвольную тему.
+        //      http://jsonplaceholder.typicode.com/albums/13/photos
+        // 3. Создать файл data.js. !
+        // 4. Создать переменную которая будет хранить данные из публичных api. !
+            // console.log(hw05data);
+
+        // Задание 2
+        // 1. Создать файл index.html.
+        // 2. Подключить data.js.
+        //      hw05data.js в моем случае
+        // 3. Сформировать контент из данных (картинка загловок и параграф).
+        const divEl = document.createElement('div');
+        divEl.classList.add('container');
+        document.body.appendChild(divEl);
+
+        hw05data.forEach(element => {
+            divEl.insertAdjacentHTML('beforeend', `
+            <div class="item">
+                <p class="id">Picture id: ${element.id}</p>
+                <a href="${element.url}" class="imglink" target="_blank" rel="noopener noreferrer">
+                    <img src="${element.thumbnailUrl}" alt="Picture will open in new window" class="image_thumb">
+                </a>
+                <h3 class="title">${element.title}</h3>
+            </div>
+        `);
+        });
+        // 4. Добавить данный контент в вёрстку.
+        // 5. * Добавить стили при необходимости (по желанию).
+
+        // console.log(hw5data);
+      
+    </script>
+  </body>
+</html>
